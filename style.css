@@ -1,0 +1,649 @@
+/* ============================================
+   Yuexuan Wang — Pianist Website
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: #1a1a1a;
+  background: #fff;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; object-fit: cover; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 4rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #f0f0f0;
+  transition: padding 0.3s ease;
+}
+
+nav.scrolled { padding: 0.9rem 4rem; }
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #333;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: #1a1a1a;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+.nav-social {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.nav-social a {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  transition: color 0.2s;
+}
+.nav-social a:hover { color: #1a1a1a; }
+
+.lang-toggle {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  color: #888;
+  padding: 0.3rem 0.7rem;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.2s;
+  margin-left: 1rem;
+}
+.lang-toggle:hover { color: #1a1a1a; border-color: #1a1a1a; }
+
+/* Hamburger (mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 1px;
+  background: #1a1a1a;
+  transition: all 0.3s;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background: #d0ccc8; /* placeholder color until real photo */
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center 20%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 4rem 5rem;
+  color: #fff;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.hero-tagline {
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+}
+
+.hero-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.9);
+  border-left: 2px solid rgba(255,255,255,0.5);
+  padding-left: 1.2rem;
+  max-width: 520px;
+}
+
+.hero-quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.6rem;
+  font-family: 'Jost', sans-serif;
+}
+
+/* ---------- Sections ---------- */
+section { padding: 6rem 4rem; }
+
+.container { max-width: 1100px; margin: 0 auto; }
+.container-narrow { max-width: 720px; margin: 0 auto; }
+
+/* ---------- Upcoming Performances ---------- */
+.upcoming { background: #fafafa; }
+
+.upcoming h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.performance-list { list-style: none; }
+
+.performance-item {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.performance-item:first-child { border-top: 1px solid #e8e8e8; }
+
+.perf-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: #888;
+  text-transform: uppercase;
+  padding-top: 3px;
+}
+
+.perf-date .day {
+  display: block;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.perf-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.perf-venue {
+  font-size: 0.82rem;
+  color: #777;
+  letter-spacing: 0.05em;
+}
+
+.perf-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 1px;
+  align-self: center;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.perf-link:hover { color: #888; border-color: #888; }
+
+/* ---------- About Snippet (Home) ---------- */
+.about-snippet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-snippet img, .about-snippet .img-placeholder {
+  aspect-ratio: 3/4;
+  background: #e0dcda;
+  border-radius: 2px;
+}
+
+.about-text h2 { font-size: 2.2rem; margin-bottom: 1.2rem; }
+.about-text p { font-size: 0.95rem; color: #444; margin-bottom: 1.2rem; }
+
+.btn {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 2px;
+  margin-top: 0.8rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn:hover { color: #888; border-color: #888; }
+
+/* ---------- Quote Banner ---------- */
+.quote-banner {
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 4rem;
+}
+
+.quote-banner blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  line-height: 1.6;
+}
+
+.quote-banner cite {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #888;
+  font-family: 'Jost', sans-serif;
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter {
+  background: #f5f3f1;
+  text-align: center;
+}
+
+.newsletter h2 { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.newsletter p { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  max-width: 440px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  border: none;
+  outline: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  background: #fff;
+}
+
+.newsletter-form button {
+  padding: 0.85rem 1.6rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover { background: #444; }
+
+/* ---------- About Page ---------- */
+.page-hero {
+  padding: 10rem 4rem 5rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+}
+
+.about-full {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  padding: 5rem 4rem;
+}
+
+.bio-text p { font-size: 0.95rem; color: #444; margin-bottom: 1.4rem; line-height: 1.85; }
+
+.bio-sidebar { position: sticky; top: 8rem; }
+
+.bio-sidebar img, .bio-sidebar .img-placeholder {
+  aspect-ratio: 3/4;
+  background: #e0dcda;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.sidebar-info { font-size: 0.82rem; color: #666; }
+.sidebar-info strong { display: block; font-weight: 500; color: #1a1a1a; margin-bottom: 0.2rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; }
+.sidebar-info .info-block { margin-bottom: 1.2rem; }
+
+/* ---------- Schedule Page ---------- */
+.filter-bar {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 4rem;
+  border-bottom: 1px solid #e8e8e8;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+
+.schedule-list { padding: 3rem 4rem 6rem; }
+
+/* ---------- Media Page ---------- */
+.media-tabs {
+  display: flex;
+  gap: 2.5rem;
+  padding: 2rem 4rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.media-tab {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.2s;
+}
+.media-tab.active, .media-tab:hover { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+
+.media-section { padding: 4rem; display: none; }
+.media-section.active { display: block; }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.video-card { cursor: pointer; }
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #e0dcda;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  display: block;
+}
+
+.video-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-thumb:hover img { transform: scale(1.03); }
+
+.video-thumb .play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  transition: background 0.2s;
+}
+
+.video-thumb:hover .play-btn { background: rgba(0,0,0,0.4); }
+
+.video-thumb .play-btn::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px 0 14px 26px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+
+.video-card h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
+.video-card p { font-size: 0.82rem; color: #777; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.photo-item {
+  aspect-ratio: 3/2;
+  background: #e0dcda;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.photo-item:hover { opacity: 0.85; }
+.photo-item img { height: 100%; object-fit: cover; transition: transform 0.4s; }
+.photo-item:hover img { transform: scale(1.03); }
+
+/* ---------- Lessons Page ---------- */
+.lessons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.lessons-info h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+.lessons-info p { font-size: 0.95rem; color: #444; margin-bottom: 1.2rem; }
+.lessons-info ul { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+.lessons-info li { font-size: 0.9rem; color: #444; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+.lessons-info li:last-child { border-bottom: none; }
+
+/* ---------- Contact Page ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.contact-info h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+.contact-info p { font-size: 0.95rem; color: #444; margin-bottom: 1.2rem; }
+.contact-block { margin-bottom: 1.8rem; }
+.contact-block .label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 0.3rem; }
+.contact-block a { font-size: 0.95rem; border-bottom: 1px solid #ccc; }
+.contact-block a:hover { border-bottom-color: #1a1a1a; }
+
+.contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #888; }
+.form-group input, .form-group textarea, .form-group select {
+  padding: 0.85rem 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-bottom-color: #1a1a1a; }
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.submit-btn {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+  transition: background 0.2s;
+}
+.submit-btn:hover { background: #444; }
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.footer-social { display: flex; gap: 1.5rem; }
+.footer-social a {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  transition: color 0.2s;
+}
+.footer-social a:hover { color: #1a1a1a; }
+
+.footer-copy { font-size: 0.72rem; color: #bbb; }
+
+/* ---------- Utilities ---------- */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 2rem; }
+  nav.scrolled { padding: 0.8rem 2rem; }
+  section { padding: 4rem 2rem; }
+
+  .nav-links, .nav-social { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: #fff; padding: 2rem; border-bottom: 1px solid #eee; gap: 1.5rem; }
+  .nav-toggle { display: flex; }
+
+  .about-snippet { grid-template-columns: 1fr; gap: 3rem; }
+  .about-full { grid-template-columns: 1fr; }
+  .bio-sidebar { position: static; }
+  .contact-grid, .lessons-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-content { padding: 0 2rem 4rem; }
+  footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  .page-hero { padding: 8rem 2rem 3rem; }
+  .about-full, .schedule-list, .media-section { padding: 3rem 2rem; }
+  .filter-bar, .media-tabs { padding: 1.5rem 2rem; }
+  .performance-item { grid-template-columns: 70px 1fr; }
+  .perf-link { display: none; }
+}
+
+@media (max-width: 560px) {
+  .photo-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
+}
