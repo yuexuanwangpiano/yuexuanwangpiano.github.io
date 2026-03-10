@@ -109,7 +109,7 @@ nav.scrolled { padding: 0.9rem 4rem; }
   border: 1px solid #ccc;
   cursor: pointer;
   color: #888;
-  padding: 0.3rem 0.7rem;
+  padding: 0.15rem 0.35rem;
   font-family: 'Jost', sans-serif;
   transition: all 0.2s;
   margin-left: 1rem;
