@@ -96,4 +96,26 @@
       <a href="https://xhslink.com/m/4YnqnOdV8tt" target="_blank" rel="noopener" data-zh="小红书">RedNote</a>
       <a href="contact.html" data-zh="联系" style="font-weight:700;">Contact</a>
     </div>
-    <span class="
+    <span class="footer-copy">© 2026 Yuexuan Wang</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    // Highlight active nav link
+    (function() {
+      var path = window.location.pathname.split('/').pop() || '';
+      var page = path.replace('.html', '') || 'index';
+      var links = document.querySelectorAll('.nav-links a');
+      links.forEach(function(link) {
+        var href = (link.getAttribute('href') || '').replace('.html', '') || 'index';
+        if (href === page) {
+          link.style.fontWeight = '700';
+          link.style.opacity = '1';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
