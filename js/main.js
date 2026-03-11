@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     localStorage.setItem('lang', lang);
     document.querySelectorAll('.lang-toggle').forEach(btn => {
-      btn.textContent = lang === 'zh' ? 'EN' : '中文';
+      btn.textContent = lang === 'zh' ? 'EN' : '中';
     });
   }
 
