@@ -24,6 +24,16 @@
         letter-spacing: 0.05em;
         color: inherit;
       }
+
+      /* About page: show photo before the bio */
+      .about-full {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem;
+      }
+      .about-full .bio-sidebar { order: 1; width: 100%; }
+      .about-full .bio-text { order: 2; }
+      .about-full .bio-sidebar img { width: 100%; }
     }
   </style>
 </head>
