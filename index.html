@@ -28,8 +28,17 @@
        lower it if the person is still cut off on the left. */
     @media (max-width: 768px) {
       .hero-image {
-        background-position: 25% center !important;
+        background-position: 10% center !important;
       }
+
+      /* Mobile: show About text first, then the second photo */
+      .about-snippet {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem;
+      }
+      .about-snippet .about-text { order: 1; }
+      .about-snippet img { order: 2; width: 100%; }
     }
   </style>
 </head>
