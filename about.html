@@ -7,22 +7,34 @@
   <meta name="description" content="Biography of Yuexuan Wang, pianist." />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* Language toggle: plain text, no box (desktop + mobile) */
+    button.lang-toggle {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      outline: none;
+      border-radius: 0 !important;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* Desktop top bar: social icons right next to the language toggle */
+    @media (min-width: 769px) {
+      nav .nav-links { margin-left: auto !important; margin-right: auto !important; }
+      nav .nav-social { margin-left: 0 !important; margin-right: 0.6rem !important; gap: 0.8rem !important; }
+      nav .lang-toggle { margin-left: 0 !important; padding-left: 0.2rem !important; padding-right: 0 !important; }
+    }
+
     /* Mobile top bar: hide social icons, plain-text language toggle next to menu button */
     @media (max-width: 768px) {
       nav .nav-social { display: none !important; }
       nav .nav-toggle { margin-left: 0 !important; }
       .lang-toggle {
-        border: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        outline: none;
         padding: 0 0.25rem !important;
         margin-left: auto !important;
         margin-right: 0.35rem !important;
-        border-radius: 0 !important;
         font-size: 1rem;
         letter-spacing: 0.05em;
-        color: inherit;
       }
 
       /* About page: show photo before the bio */
