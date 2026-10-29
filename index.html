@@ -39,6 +39,22 @@
       }
       .about-snippet .about-text { order: 1; }
       .about-snippet img { order: 2; width: 100%; }
+
+      /* Mobile: hide social icons in the top bar */
+      nav .nav-social { display: none !important; }
+
+      /* Mobile: language toggle as plain text (no square) */
+      .lang-toggle {
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none;
+        padding: 0 0.5rem !important;
+        border-radius: 0 !important;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        color: inherit;
+      }
     }
   </style>
 </head>
