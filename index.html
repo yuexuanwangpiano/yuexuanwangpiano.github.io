@@ -21,6 +21,16 @@
       text-align: right !important;
       z-index: 2;
     }
+
+    /* Mobile: shift hero photo so the person is visible.
+       0% = far left edge, 50% = center, 100% = far right edge.
+       Raise the number if you see too much of the left side,
+       lower it if the person is still cut off on the left. */
+    @media (max-width: 768px) {
+      .hero-image {
+        background-position: 25% center !important;
+      }
+    }
   </style>
 </head>
 <body>
