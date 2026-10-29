@@ -43,13 +43,17 @@
       /* Mobile: hide social icons in the top bar */
       nav .nav-social { display: none !important; }
 
+      nav .nav-toggle { margin-left: 0 !important; }
+
       /* Mobile: language toggle as plain text (no square) */
       .lang-toggle {
         border: none !important;
         background: transparent !important;
         box-shadow: none !important;
         outline: none;
-        padding: 0 0.5rem !important;
+        padding: 0 0.25rem !important;
+        margin-left: auto !important;   /* push toggle + menu button to the right together */
+        margin-right: 0.35rem !important;
         border-radius: 0 !important;
         font-size: 1rem;
         letter-spacing: 0.05em;
